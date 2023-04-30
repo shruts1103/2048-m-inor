@@ -1,0 +1,1 @@
+web: gunicorn Game2048.wsgi
