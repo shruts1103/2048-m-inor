@@ -12,10 +12,12 @@ const lostBox = document.getElementById('lost-box')
 const Board = document.getElementById('board')
 const scoreCard = document.getElementById('score')
 const highScoreCard = document.getElementById('high-score')
+const matrix = document.getElementById('matrix')
 
-const btns = [resetBtn, backBtn, quitBtn]
+
+const btns = [resetBtn, backBtn, quitBtn,matrix]
 const colorPalette = {
-    2: 60, 4: 50, 8: 40, 16: 30, 32: 20, 64: 10, 128: 70, 256: 80, 512: 90, 1024: 0, 2028: 100
+    3: 60, 6: 50, 9: 40, 16: 30, 32: 20, 64: 10, 128: 70, 256: 80, 512: 90, 1024: 0, 2028: 100
 }
 
 let board = [
@@ -31,6 +33,7 @@ let prevState = [
     [0, 0, 0, 0],
     [0, 0, 0, 0]
 ]
+
 
 let score = 0
 let highScore = score
@@ -202,7 +205,7 @@ function initializeBoard(board) {
         let emptyCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
         row = emptyCell[0]
         col = emptyCell[1]
-        board[row][col] = [2, 4][Math.floor(Math.random()*2)]
+        board[row][col] = [3, 6][Math.floor(Math.random()*2)]
     }
     return board
 }
@@ -353,7 +356,7 @@ function getEmptyCells(board) {
 }
 
 function generateAnotherNumInRandomEmptyCell(board) {
-    let randomNumberFromAnArray = [2, 4][Math.floor(Math.random()*2)]
+    let randomNumberFromAnArray = [3, 6][Math.floor(Math.random()*2)]
     let emptyCells = getEmptyCells(board)
     let randomEmptyCell = emptyCells[Math.floor(Math.random()*emptyCells.length)]
     // console.log(randomEmptyCell)
@@ -366,7 +369,7 @@ function generateAnotherNumInRandomEmptyCell(board) {
 function checkWin(board) {
     for (let i=0; i<board.length; i++) {
         for (let j=0; j<board[i].length; j++) {
-            if (board[i][j] == 2048) {
+            if (board[i][j] == 2178) {
                 return true
             } else {
                 continue
@@ -375,6 +378,16 @@ function checkWin(board) {
     }
     return false
 }
+// const connectButton = document.getElementById('connect-button');
+matrix.addEventListener('click', () => {
+  const script1 = document.createElement('script');
+  script1.src = 'path/to/main.js';
+  document.body.appendChild(script1);
+
+  const script2 = document.createElement('script');
+  script2.src = 'path/to/main2.js';
+  document.body.appendChild(script2);
+});
 
 // function checkLoss(board, score, prevScore) {
 //     console.log(board)
