@@ -12,7 +12,6 @@ const lostBox = document.getElementById('lost-box')
 const Board = document.getElementById('board')
 const scoreCard = document.getElementById('score')
 const highScoreCard = document.getElementById('high-score')
-// const matrix = document.getElementById('matrix')
 
 
 const btns = [resetBtn, backBtn, quitBtn]
