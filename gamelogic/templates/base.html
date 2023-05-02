@@ -34,7 +34,7 @@
   sticky-top navbar 
   navbar-expand-lg
    navbar-light bg-white">
-    <a class="navbar-brand" href="/">2178 GAME</a>
+    <a class="navbar-brand" href="/">aDd wth Odd GAME</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -47,29 +47,34 @@
         </li>
 
       </ul> {% endcomment %}
+    
+ {% comment %} {% if request.session.customer %} {% endcomment %}
 
-
-      <ul class=" navbar-nav my-2 my-lg-0">
-        <li class="nav-item ">
-          <a class="nav-link" href="/basic">4 by 4 page
-            <span class="sr-only">(current)</span></a>
-        </li>
-        {% comment %} {% if request.session.customer %} {% endcomment %}
-        
         {% comment %} <li class="nav-item ">
           <a class="nav-link" href="/basic">4 by 4<span class="sr-only">(current)</span></a>
         </li> {% endcomment %}
+      <ul class="navbar-nav mx-auto justify-content-center">
+        <li class="nav-item ">
+          <a class="nav-link" href="/basic">Odd Number-3,4 × 4(Easy)
+            <span class="sr-only">(current)</span></a>
+        </li>
 
         <li class="nav-item ">
-          <a class="nav-link" href="/index">4 by 4 diff<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/basic2">Odd Number-3,5 ×  5 (Easy)<span class="sr-only">(current)</span></a>
+        </li>
+        
+        <li class="nav-item ">
+          <a class="nav-link" href="/index">Odd Number-3,4 × 4 (Hard)<span class="sr-only">(current)</span></a>
         </li>
         {% comment %} {% else %} {% endcomment %}
        
         <li class="nav-item ">
-          <a class="nav-link" href="/index2">5 by 5 diff<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/index2">Odd Number-3,5 ×  5 (Hard)<span class="sr-only">(current)</span></a>
         </li>
 
-       
+     
+
+      
         {% comment %} {% endif %} {% endcomment %}
 
 
