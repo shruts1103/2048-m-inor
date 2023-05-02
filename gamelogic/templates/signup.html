@@ -1,6 +1,6 @@
-<!-- {% extends 'base.html' %}
- -->
-{% block navs %}
+
+
+{% block nav %}
     {# leave this block empty to remove the navbar #}
 {% endblock %}
 
@@ -14,9 +14,9 @@
         <div class="col-lg-5 rounded mx-auto border pt-4">
             <div class="text-center col">
             
-                <img 
+                {% comment %} <img 
                 src="" alt=""
-                class="" style="height: 150px;">
+                class="" style="height: 150px;"> {% endcomment %}
             <!-- <hr> -->
             <div class="display-8">Hi Player </div>
             <hr>
@@ -33,20 +33,13 @@
                 {% endif %}
                 <!-- firstname -->
                 <div class="form-group">
-                    <label for="">First Name</label>
+                    <label for="">Name</label>
                     <input type="text" name="firstname"
                      id="" value="{{values.first_name}}" class="form-control form-control-sm" 
                      placeholder="">
                 </div>
 
-                <!-- last name -->
-                <div class="form-group">
-                    <label for="">Last Name</label>
-                    <input type="text" name="lastname" 
-                    id="" value="{{values.last_name}}" class="form-control form-control-sm"
-                    >
-                </div>
-
+            
                 <!-- phone -->
                 <div class="form-group">
                     <label for="">Age</label>
