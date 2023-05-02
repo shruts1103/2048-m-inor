@@ -20,7 +20,10 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <script src="{% static 'main.js' %}" defer></script>
 </head>
-<body class="text-center text-white">
+<body >
+    <a href="{% url 'index2' %}">Go to Page 2</a>
+
+    <class="text-center text-white">
     <div class="container text-center">
         <div class="container">
             <div class="title">
@@ -68,11 +71,12 @@
         </div>
         <div id="board" class=''>
             <div class="cells">
+                <div class="cell blocked"></div>
                 <div class="cell"></div>
                 <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
+                <div class="cell blocked"></div>
             </div>
+           
             <br>
             <div class="cells">
                 <div class="cell"></div>
@@ -96,5 +100,6 @@
             </div>
         </div>
     </div>
+   
 </body>
 </html>
