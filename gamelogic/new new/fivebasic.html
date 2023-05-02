@@ -1,0 +1,123 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aDd with oDd</title>  
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static '5simple.js' %}" defer></script>
+    {% comment %} <button id="matrix">Connect JS Files</button> {% endcomment %}
+
+    
+</head>
+<body >
+<!--     <a href="index.html">Go to Page 2</a>
+ -->
+    <class="text-center text-white">
+    <div class="container text-center">
+        <div class="container">
+            <div class="title">
+                <div class='display-2'>aDd with oDd</div>           
+            </div>
+            <div class="subtitle mb-2">
+                <div class="lead">Join the numbers and get to <span class='text-bold'>2178</span> title.</div>
+            </div>
+            <input class="btn btn-secondary" type='button' id="back-btn" value='Back'>
+            <input class="btn btn-success ml-2" type='button' id="reset-btn" value='Reset'>
+            <input class="btn btn-danger ml-2" type='button' id="quit-btn" value='Quit' style="display: none;">
+            <div class="score-cards container mt-1">
+                <div id="score-card">
+                    <div class="lead">Score</div>
+                    <div id="score">0</div>
+                </div>
+                <div id="score-card">
+                    <div class="lead">High Score</div>
+                    <div id="high-score">0</div>
+                </div>
+            </div>
+            <div class="container" id="quit-box">
+                <p class="lead mt-5">All your progress would be lost, do you want to continue playing?</p>
+                <div class="quit-box-btns m-2">
+                    <input class="btn btn-success quit-box-btn" type='button' id="continue-btn" value='Continue'>
+                    <input class="btn btn-danger quit-box-btn" type='button' id="restart-btn" value='Restart'>
+                    <input class="btn btn-danger ml-2" type='button' id="quit-btn" value='Quit' style="display: none;">
+
+                </div>
+                <p class="lead">Press <kbd>Enter</kbd> to continue </p>
+                <p class='lead'>Press <kbd>Home</kbd> to restart</p>
+            </div>
+            {% comment %} <div class="container" id="win-box">
+                <div class="container">
+                    <p>Congratulations!!! <br> You Won.</p>
+                    <input class="btn {% endcomment %}
+
+            <div class="container" id="win-box">
+                <div class="container">
+                    <p>Congratulations!!! <br> You Won.</p>
+                    <input class="btn btn-success quit-box-btn mb-3" type='button' id="replay-btn" value='Replay'>
+                    <p class="lead">Press <kbd>Enter</kbd> to Replay.</p>
+                </div>
+            </div>
+            <div class="container" id="lost-box">
+                <div class="container">
+                    <p>Oops!!! <br> You Lost.</p>
+                    <input class="btn btn-danger quit-box-btn mb-3" type='button' id="try-again-btn" value='Try Again'>
+                    <p class="lead">Press <kbd>Enter</kbd> to Try Again.</p>
+                </div>
+            </div>
+        </div>
+        <div id="board" class=''>
+            <div class="cells">
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+
+            </div>
+            
+            <div class="cells">
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+
+            </div>
+            <br>
+            <div class="cells">
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+
+            </div>
+            <br>
+
+            <div class="cells">
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
