@@ -7,7 +7,7 @@
 }
 
 body {
-    background: rgb(68, 58, 58);
+    background-color: yellow;
 }
 
 .title {
@@ -15,14 +15,15 @@ body {
 }
 
 #board {
-    background: rgb(32, 31, 30);
+    background: yellowgreen;
     position: absolute;
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 10px;
     border-radius: 10px;
-    border: 3px solid black;
+    color: white;
+    border: 3px solid rgb(44, 23, 231);
     border-style: dotted;
 }
 
@@ -36,7 +37,7 @@ body {
     height: 60px;
     width: 60px;
     margin: 5px;
-    background: rgb(14, 5, 2);
+    background: orange;
     align-items: center;
     justify-content: center;
     font-size: 30px;
@@ -51,7 +52,7 @@ body {
     background: rgb(158, 45, 3);
     opacity: 0.8;
     z-index: 9999;
-    border: 10px rgb(75, 55, 49);
+    border: 10px rgb(170, 212, 16);
     border-radius: 10px;
     border-style: dashed;
     display: none;
@@ -63,7 +64,7 @@ body {
 }
 
 #win-box .container {
-    color: rgb(248, 192, 192);
+    color: rgb(84, 206, 32);
     position: relative;
     top: 15%;
 }
@@ -78,12 +79,13 @@ body {
 #score-card {
     margin: 10px;
     height: 68px;
-    background: rgb(32, 31, 30);
-    border: 3px solid black;
+    background: rgb(9, 186, 163);
+    border: 3px solid rgb(235, 27, 27);
     border-style: dotted;
     border-radius: 10px;
     transform: translate(-50%);
     font-family: 'Courier New', Courier, monospace;
+    
 }
 
 #score, #high-score {
@@ -102,3 +104,6 @@ body {
 .quit-box-btn {
     margin-right: 10px;
 }
+.blocked {
+    pointer-events: none;
+  }
