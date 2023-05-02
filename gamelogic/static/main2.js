@@ -21,17 +21,19 @@ const colorPalette = {
 }
 
 let board = [
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0]
+    [null, 0, 0,0, null],
+    [0, 0, 0, 0,0],
+    [0, 0, 0,0, 0],
+    [0, 0, 0,0, 0],
+    [null, 0, 0, 0,null]
 ]
 
 let prevState = [
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0]
+        [null, 0, 0,0, null],
+        [0, 0, 0, 0,0],
+        [0, 0, 0,0, 0],
+        [0, 0, 0,0, 0],
+        [null, 0, 0, 0,null]
 ]
 
 
@@ -115,15 +117,32 @@ window.addEventListener('keydown', async function(e) {
     }
 })
 
+// backBtn.addEventListener('click', function() {
+//     // console.log(prevState)
+//     for (let i=0; i<board.length; i++) {
+//         for (let j=0; j<board[i].length; j++) {
+//             board[i][j] = prevState[i][j]
+//         }
+//     }
+//     updateBoard(board)
+// })
 backBtn.addEventListener('click', function() {
     // console.log(prevState)
     for (let i=0; i<board.length; i++) {
         for (let j=0; j<board[i].length; j++) {
-            board[i][j] = prevState[i][j]
+            if ((i === 0 && j === 0) ||  // top-left corner
+                (i === 0 && j === board[i].length-1) ||  // top-right corner
+                (i === board.length-1 && j === 0) ||  // bottom-left corner
+                (i === board.length-1 && j === board[i].length-1)) {  // bottom-right corner
+                // board[i][j] = -1;  // set corner position as blocked
+            } else {
+                board[i][j] = prevState[i][j];  // set other positions to their previous values
+            }
         }
     }
     updateBoard(board)
 })
+
 
 resetBtn.addEventListener('click', function() {
     board = resetBoard(board)
@@ -231,17 +250,33 @@ function initializeBoard(board) {
 }
 
 
-function resetBoard(board) {
-    for (let i=0; i<board.length; i++) {
-        for (let j=0; j<board[i].length; j++) {
-            board[i][j] = 0
+// function resetBoard(board) {
+//     for (let i=0; i<board.length; i++) {
+//         for (let j=0; j<board[i].length; j++) {
+//             board[i][j] = 0
+//         }
+//     }
+//     board = initializeBoard(board)
+//     score = 0
+//     updateScoreCard(score, highScore)
+//     return board
+// }
+function initializeBoard(board) {
+    const numBlocks = Math.floor(Math.random() * (MAX_BLOCKS - MIN_BLOCKS + 1) + MIN_BLOCKS)
+
+    for (let i=0; i<numBlocks; i++) {
+        let x = Math.floor(Math.random() * ROWS)
+        let y = Math.floor(Math.random() * COLS)
+        while ((x === 0 && y === 0) || (x === 0 && y === COLS-1) || (x === ROWS-1 && y === 0) || (x === ROWS-1 && y === COLS-1)) {
+            x = Math.floor(Math.random() * ROWS)
+            y = Math.floor(Math.random() * COLS)
         }
+        board[x][y] = 1
     }
-    board = initializeBoard(board)
-    score = 0
-    updateScoreCard(score, highScore)
+
     return board
 }
+
 
 function toContinue(board, prevState) {
     let changes = 0
@@ -266,9 +301,29 @@ function getPrevState(prevState, board) {
     return prevState
 }
 
+// function updateBoard(board) {
+//     for (let i=0; i<board.length; i++) {
+//         for (let j=0; j<board[i].length; j++) {
+//             cell = cells[i].children[j]
+//             if (board[i][j] != 0) {
+//                 cell.style.backgroundColor = `rgb(68, 58, ${colorPalette[board[i][j]]})`
+//                 cell.style.transition = '500ms'
+//                 cell.innerHTML = board[i][j]
+//             }
+//             else {
+//                 cell.innerHTML = ''
+//                 cell.style.backgroundColor='rgb(14, 5, 2)'
+//             }
+//         }
+//     }
+// }
 function updateBoard(board) {
     for (let i=0; i<board.length; i++) {
         for (let j=0; j<board[i].length; j++) {
+            // skip rendering cells in the corners
+            if ((i == 0 && j == 0) || (i == 0 && j == board.length-1) || (i == board.length-1 && j == 0) || (i == board.length-1 && j == board.length-1)) {
+                continue;
+            }
             cell = cells[i].children[j]
             if (board[i][j] != 0) {
                 cell.style.backgroundColor = `rgb(68, 58, ${colorPalette[board[i][j]]})`
@@ -282,6 +337,7 @@ function updateBoard(board) {
         }
     }
 }
+
 
 function pushToLeft(row, val, index, joins) {
     for (let i=0; i<=index; i++) {
